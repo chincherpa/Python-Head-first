@@ -1,16 +1,16 @@
 
 from string import Template
 
-def start_response(resp="text/html"):
+def antwort_anfang(resp="text/html"):
     return('Content-type: ' + resp + '\n\n')
 
-def include_header(the_title):
+def seitenanfang(titel):
     with open('templates/header.html') as headf:
         head_text = headf.read()
     header = Template(head_text)
     return(header.substitute(title=the_title))
 
-def include_footer(the_links):
+def seitenende(the_links):
     with open('templates/footer.html') as footf:
         foot_text = footf.read()
     link_string = ''
@@ -19,26 +19,26 @@ def include_footer(the_links):
     footer = Template(foot_text)
     return(footer.substitute(links=link_string))
 
-def start_form(the_url, form_type="POST"):
+def form_anfang(die_url, form_type="POST"):
     return('<form action="' + the_url + '" method="' + form_type + '">')
 
-def end_form(submit_msg="Submit"):
-    return('<p></p><input type=submit value="' + submit_msg + '"></form>')
+def form_ende(submit_txt="Absenden"):
+    return('<p></p><input type=submit value="' + submit_txt + '"></form>')
 
-def radio_button(rb_name, rb_value):
+def radio_button(rb_name, rb_wert):
     return('<input type="radio" name="' + rb_name +
-                             '" value="' + rb_value + '"> ' + rb_value + '<br />')
+                             '" value="' + rb_wert + '"> ' + rb_wert + '<br />')
 
-def u_list(items):
+def u_liste(l_elemente):
     u_string = '<ul>'
-    for item in items:
+    for item in l_elemente:
         u_string += '<li>' + item + '</li>'
     u_string += '</ul>'
     return(u_string)
 
-def header(header_text, header_level=2):
-    return('<h' + str(header_level) + '>' + header_text +
-           '</h' + str(header_level) + '>')
+def header(h_text, h_ebene=2):
+    return('<h' + str(h_ebene) + '>' + h_text +
+           '</h' + str(h_ebene) + '>')
 
-def para(para_text):
-    return('<p>' + para_text + '</p>') 
+def para(p_text):
+    return('<p>' + p_text + '</p>') 
