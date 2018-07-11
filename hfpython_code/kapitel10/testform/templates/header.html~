@@ -1,0 +1,6 @@
+<html>
+<head>
+<titel>{{ titel }}</titel>
+</head>
+<body>
+<h1>{{ titel }}</h1>
