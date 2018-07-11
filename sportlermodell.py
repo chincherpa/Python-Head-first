@@ -7,11 +7,12 @@ def datei_lesen(txtdatei):
         with open(txtdatei) as out:
             daten = out.readline()
         templ = daten.strip().split(',')
-        #print(templ[0], templ[1], templ)
+        # print(templ[0], templ[1], templ)
         return(SportlerList(templ.pop(0), templ.pop(0), templ))
     except IOError as ioerr:
         print('Datei nicht gefunden' + str(ioerr))
         return(None)
+
 
 def konserve_machen(dateiliste):
     alle_sportler = {}
@@ -24,6 +25,7 @@ def konserve_machen(dateiliste):
     except IOError as ioerr:
         print('Dateifehler (konserve_machen)' + str(ioerr))
     return(alle_sportler)
+
 
 def konserve_lesen():
     alle_sportler = {}
